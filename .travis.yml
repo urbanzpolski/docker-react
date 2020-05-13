@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t urbanzpolski/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run urbanzpolski/docker-react npm run test -- --coverage
